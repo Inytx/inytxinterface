@@ -23,11 +23,29 @@
             </div>
         </header>
 
-        <div class="search-container">
-            <form action="https://www.google.com/search" method="GET" target="_blank">
-                <span class="prompt">></span>
-                <input type="text" name="q" placeholder="SEARCH_THE_WEB..." autocomplete="off">
-            </form>
+        <div class="control-bar">
+            <!-- Search Bar -->
+            <div class="search-box">
+                <form action="https://www.google.com/search" method="GET" target="_blank">
+                    <span class="prompt">></span>
+                    <input type="text" name="q" placeholder="SEARCH_THE_WEB..." autocomplete="off">
+                </form>
+            </div>
+
+            <!-- AI Quick Links -->
+            <a href="https://gemini.google.com/" class="mini-btn theme-gemini" target="_blank" title="Gemini">
+                <!-- Gemini Icon (Sparkle) -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="currentColor"/>
+                </svg>
+            </a>
+
+            <a href="https://chatgpt.com/" class="mini-btn theme-chatgpt" target="_blank" title="ChatGPT">
+                <!-- ChatGPT Icon (Swirl) -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.5002 1.5C12.5002 1.5 16.5 2.5 17.5 5.5C18.5 8.5 16.5 10.5 16.5 10.5L19.5 9C19.5 9 22.5 11.5 22.5 14.5C22.5 17.5 19.5 19.5 19.5 19.5L20.5 20C20.5 20 19.5 23 15.5 22.5C11.5 22 10.5 19 10.5 19L11.5 21C11.5 21 8 23 5.5 21C3 19 3.5 15.5 3.5 15.5L2 16.5C2 16.5 0 13.5 1.5 10.5C3 7.5 6 7 6 7L4.5 6C4.5 6 6 2.5 9.5 2.5C13 2.5 12.5002 1.5 12.5002 1.5ZM13 19.5C13 19.5 15.5 19.5 17 18C18.5 16.5 18 13.5 18 13.5L15 15L13 19.5ZM19.5 13C19.5 13 20 10 18.5 8C17 6 14.5 6.5 14.5 6.5L16.5 9.5L19.5 13ZM7.5 18C7.5 18 4.5 18 3.5 15.5C2.5 13 3.5 10 3.5 10L6.5 11.5L7.5 18ZM6.5 8C6.5 8 8 5 11 4.5C14 4 15.5 6.5 15.5 6.5L12 7.5L6.5 8ZM8.5 16.5L10.5 11.5L7.5 10C7.5 10 7.5 13.5 8.5 16.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+            </a>
         </div>
 
         <div class="modules-container">
