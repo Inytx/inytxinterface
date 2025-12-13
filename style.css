@@ -8,6 +8,7 @@
     --theme-pink: #FF0055;
     --theme-blue: #00CCFF;
     --theme-green: #00FF85;
+    --theme-orange: #FF8800; /* New Theme */
 }
 
 * {
@@ -145,7 +146,7 @@ header p {
 .module-card {
     position: relative;
     width: 260px;
-    height: 180px; /* Reduced height (approx half of 400px) */
+    height: 180px; /* Reduced height */
     background-color: var(--card-bg);
     border-radius: 15px;
     text-decoration: none;
@@ -196,10 +197,18 @@ header p {
 /* Main Big Text */
 .main-stat {
     font-family: 'Press Start 2P', cursive;
-    font-size: 1.4rem; /* Slightly smaller to fit */
+    font-size: 1.4rem; 
     line-height: 1.4;
     text-transform: uppercase;
     text-align: left;
+    margin-top: 10px;
+}
+
+.sub-text {
+    font-size: 1rem;
+    text-align: left;
+    opacity: 0.7;
+    margin-bottom: auto;
 }
 
 /* Footer Row */
@@ -208,6 +217,7 @@ header p {
     justify-content: space-between;
     align-items: center;
     font-size: 1rem;
+    margin-top: auto;
 }
 
 .dots {
@@ -221,6 +231,7 @@ header p {
 .module-card.theme-pink   { color: var(--theme-pink); }
 .module-card.theme-blue   { color: var(--theme-blue); }
 .module-card.theme-green  { color: var(--theme-green); }
+.module-card.theme-orange { color: var(--theme-orange); }
 
 /* Hover Effects */
 .module-card:hover {
