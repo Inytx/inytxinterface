@@ -2,6 +2,10 @@
     --bg-dark: #101010;
     --card-bg: #000000;
     
+    /* Default Background Variables */
+    --bg-gradient-start: #1a1a1a;
+    --bg-gradient-end: #050505;
+    
     /* Themes */
     --theme-yellow: #FFD700;
     --theme-purple: #9D4EDD;
@@ -14,6 +18,35 @@
     --theme-terminal: #00FF00;
 }
 
+/* --- THEME OVERRIDES --- */
+
+/* Matrix Theme */
+body.theme-matrix {
+    --bg-gradient-start: #001a05;
+    --bg-gradient-end: #000000;
+    --theme-terminal: #00FF00;
+}
+/* Force green text on Matrix theme if desired, or just atmosphere */
+body.theme-matrix .clock {
+    color: #00FF00;
+    border-color: #005500;
+    box-shadow: 4px 4px 0px #003300;
+}
+
+/* Vapor Theme */
+body.theme-vapor {
+    --bg-gradient-start: #240046;
+    --bg-gradient-end: #10002b;
+    --theme-terminal: #FF00CC;
+}
+body.theme-vapor .clock {
+    color: #FF00CC;
+    border-color: #550044;
+    box-shadow: 4px 4px 0px #330022;
+}
+
+/* ----------------------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -22,18 +55,19 @@
 
 body {
     background-color: var(--bg-dark);
-    /* Matte dark background with subtle noise */
+    /* Dynamic background */
     background-image: 
-        radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+        radial-gradient(circle at center, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
     color: white;
     font-family: 'VT323', monospace;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Changed from center to allow scrolling if tall */
+    align-items: flex-start; 
     padding-top: 50px;
     padding-bottom: 50px;
     overflow-x: hidden;
+    transition: background-image 0.5s ease;
 }
 
 .container {
@@ -56,6 +90,17 @@ header {
     margin: 0 auto;
     border-bottom: 2px solid #333;
     padding-bottom: 20px;
+}
+
+.header-left {
+    text-align: left;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
 }
 
 header h1 {
@@ -83,6 +128,7 @@ header p {
     padding: 10px;
     border: 2px solid #333;
     box-shadow: 4px 4px 0px #333;
+    transition: all 0.3s ease;
 }
 
 .blink {
@@ -93,6 +139,29 @@ header p {
 @keyframes blinker {
     50% { opacity: 0; }
 }
+
+/* --- THEME SWITCHER --- */
+.theme-switcher {
+    display: flex;
+    gap: 8px;
+}
+
+.theme-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.2);
+}
+
+.theme-btn.default { background: #333; }
+.theme-btn.matrix { background: #00FF00; border-color: #005500; }
+.theme-btn.vapor { background: #FF00CC; border-color: #550044; }
 
 /* --- CONTROL BAR --- */
 .control-bar {
@@ -290,7 +359,7 @@ header p {
 .widget {
     flex: 1 1 300px;
     min-width: 300px;
-    max-width: 600px; /* Limit width now that it's alone */
+    max-width: 600px; 
 }
 
 /* Terminal Widget */
@@ -302,7 +371,7 @@ header p {
     box-shadow: 4px 4px 0px #333;
     display: flex;
     flex-direction: column;
-    height: 250px; /* Slightly taller since it's alone */
+    height: 250px; 
 }
 
 .terminal-header {
@@ -391,6 +460,10 @@ header p {
         text-align: center;
     }
     
+    .header-right {
+        align-items: center;
+    }
+    
     header h1, header p {
         text-align: center;
     }
@@ -414,4 +487,5 @@ header p {
         max-width: 400px;
     }
 }
+
 
