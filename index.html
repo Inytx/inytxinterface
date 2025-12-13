@@ -15,11 +15,18 @@
     <div class="container">
         <header>
             <div class="header-content">
-                <div>
+                <div class="header-left">
                     <h1>SYSTEM CHECKPOINT</h1>
                     <p>USER: ADMIN_01 // <span class="blink">READY</span></p>
                 </div>
-                <div class="clock" id="clock">00:00:00</div>
+                <div class="header-right">
+                    <div class="clock" id="clock">00:00:00</div>
+                    <div class="theme-switcher">
+                        <div class="theme-btn default" onclick="setTheme('default')" title="Default"></div>
+                        <div class="theme-btn matrix" onclick="setTheme('matrix')" title="Matrix"></div>
+                        <div class="theme-btn vapor" onclick="setTheme('vapor')" title="Vapor"></div>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -172,13 +179,26 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Removed Music Widget -->
         </div>
 
     </div>
 
     <script>
+        // --- Theme Switcher Logic ---
+        function setTheme(theme) {
+            document.body.className = ''; // Reset classes
+            if (theme !== 'default') {
+                document.body.classList.add('theme-' + theme);
+            }
+            localStorage.setItem('cyber_theme', theme);
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('cyber_theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        }
+
         // --- Clock Logic ---
         function updateClock() {
             const now = new Date();
@@ -192,7 +212,6 @@
         const todoInput = document.getElementById('todo-input');
         const todoList = document.getElementById('todo-list');
 
-        // Load from LocalStorage
         const savedTasks = JSON.parse(localStorage.getItem('cyber_tasks')) || [];
         savedTasks.forEach(task => addTaskToDOM(task.text, task.completed));
 
@@ -215,14 +234,12 @@
                 saveTasks();
             });
 
-            // Double click to remove
             li.addEventListener('dblclick', () => {
                 li.remove();
                 saveTasks();
             });
 
             todoList.appendChild(li);
-            // Auto scroll to bottom
             todoList.scrollTop = todoList.scrollHeight;
         }
 
