@@ -18,6 +18,23 @@
     --theme-terminal: #00FF00;
 }
 
+/* Offline Fonts */
+@font-face {
+    font-family: 'Press Start 2P';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/PressStart2P.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'VT323';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/VT323.ttf') format('truetype');
+}
+
 /* --- THEME OVERRIDES --- */
 
 /* Matrix Theme */
@@ -312,7 +329,11 @@ header p {
     opacity: 0.9;
 }
 
-.icon-small { font-size: 1rem; }
+.icon-small { 
+    width: 24px;
+    height: 24px;
+    font-size: 1rem; 
+}
 
 /* Key Badges */
 .key-badge {
