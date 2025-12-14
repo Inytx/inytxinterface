@@ -17,7 +17,7 @@
             <div class="header-content">
                 <div class="header-left">
                     <h1>SYSTEM CHECKPOINT</h1>
-                    <p>USER: ADMIN_01 // <span class="blink">READY</span></p>
+                    <p>USER: <span class="inytx-logo">Inytx</span> // <span class="blink">READY</span></p>
                 </div>
                 <div class="header-right">
                     <div class="clock" id="clock">00:00:00</div>
@@ -35,7 +35,7 @@
             <div class="search-box">
                 <form action="https://www.google.com/search" method="GET" target="_blank">
                     <span class="prompt">></span>
-                    <input type="text" name="q" placeholder="SEARCH_THE_WEB..." autocomplete="off">
+                    <input type="text" name="q" id="main-search" placeholder="SEARCH_THE_WEB... [/]" autocomplete="off">
                 </form>
             </div>
 
@@ -56,12 +56,12 @@
         <div class="modules-container">
             <!-- Row 1: 3 items -->
             <div class="row row-top">
-                <a href="https://drive.google.com" class="module-card theme-yellow" target="_blank">
+                <a href="https://drive.google.com" class="module-card theme-yellow" target="_blank" data-key="1">
                     <div class="card-bg"></div>
                     <div class="card-content">
                         <div class="header-row">
                             <i class="fab fa-google-drive icon-small"></i>
-                            <span class="card-id">#01</span>
+                            <span class="card-id">#01 <span class="key-badge">[1]</span></span>
                         </div>
                         <div class="main-stat">DRIVE</div>
                         <div class="sub-text">CLOUD</div>
@@ -72,12 +72,12 @@
                     </div>
                 </a>
 
-                <a href="https://notebooklm.google.com/" class="module-card theme-purple" target="_blank">
+                <a href="https://notebooklm.google.com/" class="module-card theme-purple" target="_blank" data-key="2">
                     <div class="card-bg"></div>
                     <div class="card-content">
                         <div class="header-row">
                             <i class="fas fa-brain icon-small"></i>
-                            <span class="card-id">#02</span>
+                            <span class="card-id">#02 <span class="key-badge">[2]</span></span>
                         </div>
                         <div class="main-stat">NOTEBOOK</div>
                         <div class="sub-text">RESEARCH</div>
@@ -88,12 +88,12 @@
                     </div>
                 </a>
 
-                <a href="https://www.hiphiphip.app/" class="module-card theme-orange" target="_blank">
+                <a href="https://www.hiphiphip.app/" class="module-card theme-orange" target="_blank" data-key="3">
                     <div class="card-bg"></div>
                     <div class="card-content">
                         <div class="header-row">
                             <i class="fas fa-rocket icon-small"></i>
-                            <span class="card-id">#03</span>
+                            <span class="card-id">#03 <span class="key-badge">[3]</span></span>
                         </div>
                         <div class="main-stat">HIPHIPHIP</div>
                         <div class="sub-text">PRODUCTIVITY</div>
@@ -107,12 +107,12 @@
 
             <!-- Row 2: 3 items -->
             <div class="row row-bottom">
-                <a href="https://docs.google.com" class="module-card theme-blue" target="_blank">
+                <a href="https://docs.google.com" class="module-card theme-blue" target="_blank" data-key="4">
                     <div class="card-bg"></div>
                     <div class="card-content">
                         <div class="header-row">
                             <i class="fas fa-file-lines icon-small"></i>
-                            <span class="card-id">#04</span>
+                            <span class="card-id">#04 <span class="key-badge">[4]</span></span>
                         </div>
                         <div class="main-stat">DOCS</div>
                         <div class="sub-text">EDITOR</div>
@@ -123,12 +123,12 @@
                     </div>
                 </a>
 
-                <a href="https://mail.google.com/" class="module-card theme-pink" target="_blank">
+                <a href="https://mail.google.com/" class="module-card theme-pink" target="_blank" data-key="5">
                     <div class="card-bg"></div>
                     <div class="card-content">
                         <div class="header-row">
                             <i class="fas fa-envelope icon-small"></i>
-                            <span class="card-id">#05</span>
+                            <span class="card-id">#05 <span class="key-badge">[5]</span></span>
                         </div>
                         <div class="main-stat">GMAIL</div>
                         <div class="sub-text">MAIL</div>
@@ -139,12 +139,12 @@
                     </div>
                 </a>
 
-                <a href="https://elffe.theia.fr/learning/index" class="module-card theme-green" target="_blank">
+                <a href="https://elffe.theia.fr/learning/index" class="module-card theme-green" target="_blank" data-key="6">
                     <div class="card-bg"></div>
                     <div class="card-content">
                         <div class="header-row">
                             <i class="fas fa-graduation-cap icon-small"></i>
-                            <span class="card-id">#06</span>
+                            <span class="card-id">#06 <span class="key-badge">[6]</span></span>
                         </div>
                         <div class="main-stat">THEIA</div>
                         <div class="sub-text">LEARNING</div>
@@ -167,7 +167,7 @@
                         <span class="btn-dot yellow"></span>
                         <span class="btn-dot green"></span>
                     </div>
-                    <span class="terminal-title">TASKS.EXE</span>
+                    <span class="terminal-title">TASKS.EXE <span class="key-badge">[T]</span></span>
                 </div>
                 <div class="terminal-body">
                     <ul id="todo-list" class="todo-list">
@@ -176,6 +176,26 @@
                     <div class="input-line">
                         <span class="prompt">></span>
                         <input type="text" id="todo-input" placeholder="ADD_TASK..." autocomplete="off">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widget 2: Chronometer -->
+            <div class="widget chrono-widget">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="btn-dot red"></span>
+                        <span class="btn-dot yellow"></span>
+                        <span class="btn-dot green"></span>
+                    </div>
+                    <span class="terminal-title">CHRONO.EXE</span>
+                </div>
+                <div class="chrono-body">
+                    <div class="chrono-display" id="chrono-display">00:00:00</div>
+                    <div class="chrono-controls">
+                        <button id="chrono-start" class="btn-retro">START</button>
+                        <button id="chrono-stop" class="btn-retro">STOP</button>
+                        <button id="chrono-reset" class="btn-retro">RESET</button>
                     </div>
                 </div>
             </div>
@@ -252,6 +272,69 @@
                 });
             });
             localStorage.setItem('cyber_tasks', JSON.stringify(tasks));
+        }
+
+        // --- Keyboard Shortcuts Logic ---
+        document.addEventListener('keydown', (e) => {
+            const activeTag = document.activeElement.tagName.toLowerCase();
+            if (activeTag === 'input' || activeTag === 'textarea') {
+                if (e.key === 'Escape') {
+                    document.activeElement.blur();
+                }
+                return;
+            }
+
+            if (['1', '2', '3', '4', '5', '6'].includes(e.key)) {
+                const link = document.querySelector(`.module-card[data-key="${e.key}"]`);
+                if (link) {
+                    window.open(link.href, '_blank');
+                }
+            }
+
+            if (e.key.toLowerCase() === 't') {
+                e.preventDefault();
+                document.getElementById('todo-input').focus();
+            }
+
+            if (e.key === '/') {
+                e.preventDefault();
+                document.getElementById('main-search').focus();
+            }
+        });
+
+        // --- Chronometer Logic ---
+        let chronoInterval;
+        let chronoTime = 0; // in milliseconds
+        const display = document.getElementById('chrono-display');
+        
+        document.getElementById('chrono-start').addEventListener('click', () => {
+            if (!chronoInterval) {
+                const startTime = Date.now() - chronoTime;
+                chronoInterval = setInterval(() => {
+                    chronoTime = Date.now() - startTime;
+                    updateChronoDisplay();
+                }, 10);
+            }
+        });
+
+        document.getElementById('chrono-stop').addEventListener('click', () => {
+            clearInterval(chronoInterval);
+            chronoInterval = null;
+        });
+
+        document.getElementById('chrono-reset').addEventListener('click', () => {
+            clearInterval(chronoInterval);
+            chronoInterval = null;
+            chronoTime = 0;
+            updateChronoDisplay();
+        });
+
+        function updateChronoDisplay() {
+            const date = new Date(chronoTime);
+            const m = String(date.getUTCMinutes()).padStart(2, '0');
+            const s = String(date.getUTCSeconds()).padStart(2, '0');
+            const ms = String(Math.floor(date.getUTCMilliseconds() / 10)).padStart(2, '0');
+            display.textContent = `${m}:${s}:${ms}`;
         }
     </script>
 
