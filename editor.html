@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 20px;
+        }
+        .editor-container {
+            width: 100%;
+            max-width: 900px;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 100%;
+            background: #050505;
+            border: 2px solid #333;
+            color: var(--theme-green);
+            font-family: 'VT323', monospace;
+            font-size: 1.5rem;
+            padding: 20px;
+            outline: none;
+            resize: none;
+            box-shadow: 4px 4px 0px #333;
+        }
+        .btn-back {
+            text-decoration: none;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+        }
+        .status-msg {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+            color: var(--theme-yellow);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="editor-container">
+        <div class="editor-header">
+            <a href="index.html" class="btn-back">< PREV_PAGE</a>
+            <h1>TEXT_EDITOR.EXE</h1>
+            <button id="save-btn" class="btn-retro">SAVE</button>
+        </div>
+        <span id="status" class="status-msg">SAVED_TO_MEMORY</span>
+        <textarea id="editor-area" placeholder="INITIATING TEXT SEQUENCE..."></textarea>
+    </div>
+
+    <script>
+        const editor = document.getElementById('editor-area');
+        const status = document.getElementById('status');
+        const saveBtn = document.getElementById('save-btn');
+
+        // Load saved text
+        const savedText = localStorage.getItem('cyber_editor_content');
+        if (savedText) {
+            editor.value = savedText;
+        }
+
+        // Save function
+        function saveText() {
+            localStorage.setItem('cyber_editor_content', editor.value);
+            status.style.opacity = 1;
+            setTimeout(() => {
+                status.style.opacity = 0;
+            }, 2000);
+        }
+
+        saveBtn.addEventListener('click', saveText);
+
+        // Auto-save (Ctrl+S)
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                saveText();
+            }
+        });
+    </script>
+
+</body>
+</html>
