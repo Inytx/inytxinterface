@@ -26,7 +26,6 @@ body.theme-matrix {
     --bg-gradient-end: #000000;
     --theme-terminal: #00FF00;
 }
-/* Force green text on Matrix theme if desired, or just atmosphere */
 body.theme-matrix .clock {
     color: #00FF00;
     border-color: #005500;
@@ -118,6 +117,16 @@ header p {
     opacity: 0.7;
     letter-spacing: 1px;
     text-align: left;
+}
+
+/* --- USER LOGO (Inytx) --- */
+.inytx-logo {
+    font-family: 'Press Start 2P', cursive;
+    color: #FF0000;
+    text-shadow: 
+        3px 3px 0px #888,
+        -1px -1px 0px #222;
+    letter-spacing: 2px;
 }
 
 .clock {
@@ -305,6 +314,19 @@ header p {
 
 .icon-small { font-size: 1rem; }
 
+/* Key Badges */
+.key-badge {
+    color: #555;
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    opacity: 0.7;
+    margin-left: 5px;
+}
+.module-card:hover .key-badge {
+    color: white;
+    opacity: 1;
+}
+
 .main-stat {
     font-family: 'Press Start 2P', cursive;
     font-size: 1.4rem; 
@@ -374,6 +396,18 @@ header p {
     height: 250px; 
 }
 
+/* Chrono Widget */
+.chrono-widget {
+    background: #000;
+    border: 2px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 4px 4px 0px #333;
+    display: flex;
+    flex-direction: column;
+    height: 250px; 
+}
+
 .terminal-header {
     background: #222;
     padding: 5px 10px;
@@ -412,6 +446,51 @@ header p {
     flex-direction: column;
     height: 100%;
     overflow: hidden;
+}
+
+/* Chrono Body */
+.chrono-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.chrono-display {
+    font-family: 'VT323', monospace;
+    font-size: 4rem;
+    color: var(--theme-blue);
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0, 204, 255, 0.3);
+}
+
+.chrono-controls {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-retro {
+    background: #222;
+    border: 2px solid #555;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #000;
+    transition: transform 0.1s;
+}
+
+.btn-retro:hover {
+    transform: translateY(-2px);
+    border-color: white;
+}
+
+.btn-retro:active {
+    transform: translateY(2px);
+    box-shadow: 2px 2px 0 #000;
 }
 
 .todo-list {
@@ -487,5 +566,4 @@ header p {
         max-width: 400px;
     }
 }
-
 
